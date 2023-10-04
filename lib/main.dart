@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
               centerTitle: true,
               titleTextStyle: GoogleFonts.dmSans(
-                  fontSize: 30,
+                  fontSize: 25,
                   color: Colors.black,
                   fontWeight: FontWeight.w600)),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
