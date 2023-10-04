@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/controllers/text_widget.dart';
 import 'package:todo_app/models/todo.dart';
 import 'package:todo_app/services/todo_service.dart';
 
@@ -32,12 +33,16 @@ class _TodoListScreenState extends State<TodoListScreen> {
               );
             } else if (snapshot.hasError) {
               return const Center(
-                child: Text("Failed to show Data"),
-              );
+                  child: TextWidget(
+                      title: "Failed to show Data",
+                      weight: FontWeight.bold,
+                      size: 20));
             } else if (snapshot.data!.isEmpty && snapshot.data == null) {
               return const Center(
-                child: Text("empty"),
-              );
+                  child: TextWidget(
+                      title: "Nothing to show",
+                      weight: FontWeight.bold,
+                      size: 20));
             } else {
               final data = snapshot.data;
               return ListView.builder(
@@ -45,14 +50,17 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   itemBuilder: ((context, index) {
                     final todoData = data[index];
                     return ListTile(
-                      title: Text(
-                        todoData.title,
-                      ),
-                      leading: CircleAvatar(
-                        child: Text(data[index].toString()),
-                      ),
-                      subtitle: Text(todoData.description),
-                    );
+                        title: TextWidget(
+                            title: todoData.title,
+                            weight: FontWeight.w600,
+                            size: 20),
+                        leading: CircleAvatar(
+                          child: Text(data.length.toString()),
+                        ),
+                        subtitle: TextWidget(
+                            title: todoData.description,
+                            weight: FontWeight.w400,
+                            size: 12));
                   }));
             }
           }),

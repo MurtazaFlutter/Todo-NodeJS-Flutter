@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app/views/to_do_list_screen.dart';
 
 void main() {
@@ -14,6 +15,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
+          appBarTheme: AppBarTheme(
+              centerTitle: true,
+              titleTextStyle: GoogleFonts.dmSans(
+                  fontSize: 30,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600)),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
